@@ -47,7 +47,7 @@ public class WordSearch {
 		searchBox = null;
 	}
 
-	public Object createPointList(int xStart, int xEnd) {
+	public List<Point> createPointList(int xStart, int xEnd) {
 		List<Point> points = new ArrayList<Point>();
 		for(int i = xStart; i <= xEnd; i++) {
 			points.add(new Point(i,0));
@@ -56,6 +56,22 @@ public class WordSearch {
 	}
 
 	public List<Point> checkIfWordIsHorizontalAndForward(String[] word) {
+		for(int y = 0; y < searchBox.length; y++) {
+			for(int x = 0; x <searchBox.length; x++) {
+				if(searchBox[x][y].equals(word[0])) {
+					boolean foundWord = true;
+					for(int wordLoc = 1; wordLoc < word.length; wordLoc++) {
+						if(!searchBox[x+wordLoc][y].equals(word[wordLoc])) {
+							foundWord = false;
+							break;
+						}
+					}
+					if(foundWord) {
+						return createPointList(x, x + word.length - 1);
+					}
+				}
+			}
+		}
 		return null;
 	}
 
