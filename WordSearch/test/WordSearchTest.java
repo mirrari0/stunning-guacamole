@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import java.awt.Point;
 import java.io.ByteArrayOutputStream;
@@ -71,5 +72,10 @@ public class WordSearchTest {
 		expectedPoints.add(new Point(12,0));
 		expectedPoints.add(new Point(13,0));
 		assertEquals(expectedPoints, search.createPointList(9,13));
+	}
+	
+	@Test
+	public void testCheckIfWordIsHorizontalAndForward_NotFound() {
+		assertNull(search.checkIfWordIsHorizontalAndForward(new String[] {"C","E","L","E","R","Y"}));
 	}
 }

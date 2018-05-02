@@ -55,6 +55,10 @@ public class WordSearch {
 		return points;
 	}
 
+	public List<Point> checkIfWordIsHorizontalAndForward(String[] word) {
+		return null;
+	}
+
 
 	
 	
