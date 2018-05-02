@@ -1,8 +1,10 @@
+import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -44,6 +46,19 @@ public class WordSearch {
 		words = null;
 		searchBox = null;
 	}
+
+	public Object createPointList(int xStart, int xEnd) {
+		List<Point> points = new ArrayList<Point>();
+		for(int i = xStart; i <= xEnd; i++) {
+			points.add(new Point(i,0));
+		}
+		return points;
+	}
+
+
+	
+	
+	
 	
 	
 

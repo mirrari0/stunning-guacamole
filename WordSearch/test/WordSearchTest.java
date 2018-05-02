@@ -1,9 +1,11 @@
 import static org.junit.Assert.assertEquals;
 
+import java.awt.Point;
 import java.io.ByteArrayOutputStream;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -58,5 +60,16 @@ public class WordSearchTest {
 		System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
 		assertEquals("Caught an IO Exception while attempting to process file testData/emptyFile.txt. Error Message: File maybe empty, readline returned null\n", buffer.toString());
 		buffer.reset();
+	}
+	
+	@Test
+	public void testCreatePointListWithGivenStartAndEndPointForwardHorizontal()  {
+		List<Point> expectedPoints = new ArrayList<Point>();
+		expectedPoints.add(new Point(9,0));
+		expectedPoints.add(new Point(10,0));
+		expectedPoints.add(new Point(11,0));
+		expectedPoints.add(new Point(12,0));
+		expectedPoints.add(new Point(13,0));
+		assertEquals(expectedPoints, search.createPointList(9,13));
 	}
 }
