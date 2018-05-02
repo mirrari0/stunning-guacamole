@@ -37,7 +37,7 @@ public class WordSearchTest {
 	}
 
 	@Test
-	public void testFileNotFound() {
+	public void testLoadStructuresFileNotFound() {
 		search.fileName = "nonexistantFile";
 		search.clearStructures();
 		ByteArrayOutputStream buffer = new ByteArrayOutputStream();
@@ -45,6 +45,18 @@ public class WordSearchTest {
 		search.loadStructuresFromFile();
 		System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
 		assertEquals("Caught a file not found exception, searching for file: nonexistantFile\n",buffer.toString());
+		buffer.reset();
+	}
+	
+	@Test
+	public void testLoadStructuresEmptyFile() {
+		search.fileName = "testData/emptyFile.txt";
+		search.clearStructures();
+		ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(buffer));
+		search.loadStructuresFromFile();
+		System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+		assertEquals("Caught an IO Exception while attempting to process file testData/emptyFile.txt. Error Message: File maybe empty, readline returned null\n", buffer.toString());
 		buffer.reset();
 	}
 }

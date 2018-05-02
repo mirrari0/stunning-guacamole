@@ -36,8 +36,7 @@ public class WordSearch {
 			System.out.println("Caught a file not found exception, searching for file: " + fileName);
 		} 
 		catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Caught an IO Exception while attempting to process file " + fileName + ". Error Message: " + e.getMessage());
 		}
 	}
 
