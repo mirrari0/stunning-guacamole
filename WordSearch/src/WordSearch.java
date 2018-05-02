@@ -33,13 +33,17 @@ public class WordSearch {
 			}
 		} 
 		catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Caught a file not found exception, searching for file: " + fileName);
 		} 
 		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public void clearStructures() {
+		words = null;
+		searchBox = null;
 	}
 	
 	

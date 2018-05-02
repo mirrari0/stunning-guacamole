@@ -1,5 +1,9 @@
 import static org.junit.Assert.assertEquals;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,5 +35,16 @@ public class WordSearchTest {
 		assertEquals("P", search.searchBox[0][18]);
 		assertEquals("E", search.searchBox[18][18]);
 	}
-	
+
+	@Test
+	public void testFileNotFound() {
+		search.fileName = "nonexistantFile";
+		search.clearStructures();
+		ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(buffer));
+		search.loadStructuresFromFile();
+		System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+		assertEquals("Caught a file not found exception, searching for file: nonexistantFile\n",buffer.toString());
+		buffer.reset();
+	}
 }
