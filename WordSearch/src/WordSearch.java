@@ -75,6 +75,10 @@ public class WordSearch {
 		return null;
 	}
 
+	public Object checkIfWordIsVerticalAndDown(String[] word) {
+		return null;
+	}
+
 
 	
 	
