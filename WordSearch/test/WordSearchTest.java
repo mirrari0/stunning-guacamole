@@ -94,9 +94,15 @@ public class WordSearchTest {
 	public void testCheckIfWordIsHorizontalAndForward_WordFound() {
 		assertEquals(search.createPointList(9, 13,0), search.checkIfWordIsHorizontalAndForward(new String[] {"S","C","O","U","T"}));
 	}
+
+	@Test 
+	public void testCheckIfWordIsHorizontalAndForward_WordFound_nonZeroY() {
+		assertEquals(search.createPointList(0, 4,12), search.checkIfWordIsHorizontalAndForward(new String[] {"P","O","W","E","R"}));
+	}
 		
 	@Test
 	public void testCheckIfWordIsVerticalAndDown_notFound() {
 		assertNull(search.checkIfWordIsVerticalAndDown(new String[] {"C","E","L","E","R","Y"}));
 	}
+	
 }

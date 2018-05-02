@@ -61,7 +61,7 @@ public class WordSearch {
 				if(searchBox[x][y].equals(word[0])) {
 					boolean foundWord = true;
 					for(int wordLoc = 1; wordLoc < word.length; wordLoc++) {
-						if(!searchBox[x+wordLoc][y].equals(word[wordLoc])) {
+						if((x+wordLoc) >= searchBox.length || !searchBox[x+wordLoc][y].equals(word[wordLoc])) {
 							foundWord = false;
 							break;
 						}
