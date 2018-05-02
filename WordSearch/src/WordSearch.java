@@ -47,10 +47,10 @@ public class WordSearch {
 		searchBox = null;
 	}
 
-	public List<Point> createPointList(int xStart, int xEnd) {
+	public List<Point> createPointList(int xStart, int xEnd, int y) {
 		List<Point> points = new ArrayList<Point>();
 		for(int i = xStart; i <= xEnd; i++) {
-			points.add(new Point(i,0));
+			points.add(new Point(i,y));
 		}
 		return points;
 	}
@@ -67,7 +67,7 @@ public class WordSearch {
 						}
 					}
 					if(foundWord) {
-						return createPointList(x, x + word.length - 1);
+						return createPointList(x, x + word.length - 1, y);
 					}
 				}
 			}

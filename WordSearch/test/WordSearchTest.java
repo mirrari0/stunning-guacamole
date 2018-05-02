@@ -71,7 +71,18 @@ public class WordSearchTest {
 		expectedPoints.add(new Point(11,0));
 		expectedPoints.add(new Point(12,0));
 		expectedPoints.add(new Point(13,0));
-		assertEquals(expectedPoints, search.createPointList(9,13));
+		assertEquals(expectedPoints, search.createPointList(9,13,0));
+	}
+	
+	@Test
+	public void testCreatePointListGivenStartAndEndPointsForwardHorizontal_YisNonZero() {
+		List<Point> expectedPoints = new ArrayList<Point>();
+		expectedPoints.add(new Point(0,12));
+		expectedPoints.add(new Point(1,12));
+		expectedPoints.add(new Point(2,12));
+		expectedPoints.add(new Point(3,12));
+		expectedPoints.add(new Point(4,12));
+		assertEquals(expectedPoints, search.createPointList(0,4,12));
 	}
 	
 	@Test
@@ -81,9 +92,9 @@ public class WordSearchTest {
 	
 	@Test 
 	public void testCheckIfWordIsHorizontalAndForward_WordFound() {
-		assertEquals(search.createPointList(9, 13), search.checkIfWordIsHorizontalAndForward(new String[] {"S","C","O","U","T"}));
+		assertEquals(search.createPointList(9, 13,0), search.checkIfWordIsHorizontalAndForward(new String[] {"S","C","O","U","T"}));
 	}
-	
+		
 	@Test
 	public void testCheckIfWordIsVerticalAndDown_notFound() {
 		assertNull(search.checkIfWordIsVerticalAndDown(new String[] {"C","E","L","E","R","Y"}));
