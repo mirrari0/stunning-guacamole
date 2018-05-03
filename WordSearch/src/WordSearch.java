@@ -270,6 +270,22 @@ public class WordSearch {
 	}
 
 
+	public void printOutLocations(Map<String, List<Point>> expected) {
+		for(String word : words) {
+			System.out.println(word + ": " + getPointsListString(expected.get(word)));
+		}
+	}
+	
+	private String getPointsListString(List<Point> points) {
+		String out = "";
+		for(Point point : points) {
+			out= out + "(" + point.x + "," + point.y + "),";
+		}
+		out = out.substring(0,out.length() - 1);
+		return out;
+	}
+
+
 	
 	
 	
