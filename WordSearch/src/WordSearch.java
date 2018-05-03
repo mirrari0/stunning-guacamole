@@ -298,7 +298,16 @@ public class WordSearch {
 		fileName = strings[0];
 	}
 
-
+	public static final void main(String[] args) {
+		try {
+			WordSearch search = new WordSearch();
+			search.parseArgs(args);
+			search.processSearchWordFile();
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
 	
 	
 	
