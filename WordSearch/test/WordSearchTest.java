@@ -129,4 +129,15 @@ public class WordSearchTest {
 	public void testCheckIfWordIsVerticalAndDown_found() {
 		assertEquals(search.createPointList(1, 1, 0, 3), search.checkIfWordIsVerticalAndDown(new String[] {"B","O","N","E"}));
 	}
+	
+	@Test
+	public void testCreatePointListDiagonalDownForward() {
+		List<Point> expectedPoints = new ArrayList<Point>();
+		expectedPoints.add(new Point(7,0));
+		expectedPoints.add(new Point(8,1));
+		expectedPoints.add(new Point(9,2));
+		expectedPoints.add(new Point(10,3));
+		assertEquals(expectedPoints, search.createPointList(7, 10, 0, 3));
+		
+	}
 }
