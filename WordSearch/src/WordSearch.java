@@ -81,9 +81,9 @@ public class WordSearch {
 				if(wordLocation != null) return wordLocation;
 				wordLocation = checkIfWordIsVerticalAndDown(x,y,word);
 				if(wordLocation != null) return wordLocation;
-				wordLocation = checkIfWordIsHorizontalAndForward(x,y,word);
+				wordLocation = checkIfWordIsDiagonalDownForward(x,y,word);
 				if(wordLocation != null) return wordLocation;
-				wordLocation = checkIfWordIsHorizontalAndForward(x,y,word);
+				wordLocation = checkIfWordIsDiagonalUpForward(x,y,word);
 				if(wordLocation != null) return wordLocation;
 			}
 		}
@@ -123,41 +123,33 @@ public class WordSearch {
 		return null;
 	}
 
-	public List<Point> checkIfWordIsDiagonalDownForward(String[] word) {
-		for(int x = 0; x < searchBox.length; x++) {
-			for(int y = 0; y <searchBox.length; y++) {
-				if(searchBox[x][y].equals(word[0])) {
-					boolean foundWord = true;
-					for(int wordLoc = 1; wordLoc < word.length; wordLoc++) {
-						if((y+wordLoc) >= searchBox.length || !searchBox[x+wordLoc][y+wordLoc].equals(word[wordLoc])) {
-							foundWord = false;
-							break;
-						}
-					}
-					if(foundWord) {
-						return createPointList(x, x+ word.length - 1, y,y+ word.length - 1);
-					}
+	public List<Point> checkIfWordIsDiagonalDownForward(int x, int y, String[] word) {
+		if(searchBox[x][y].equals(word[0])) {
+			boolean foundWord = true;
+			for(int wordLoc = 1; wordLoc < word.length; wordLoc++) {
+				if((y+wordLoc) >= searchBox.length || (x+wordLoc) >= searchBox.length || !searchBox[x+wordLoc][y+wordLoc].equals(word[wordLoc])) {
+					foundWord = false;
+					break;
 				}
+			}
+			if(foundWord) {
+				return createPointList(x, x+ word.length - 1, y,y+ word.length - 1);
 			}
 		}
 		return null;
 	}
 
-	public List<Point> checkIfWordIsDiagonalUpForward(String[] word) {
-		for(int x = 0; x < searchBox.length; x++) {
-			for(int y = 0; y <searchBox.length; y++) {
-				if(searchBox[x][y].equals(word[0])) {
-					boolean foundWord = true;
-					for(int wordLoc = 1; wordLoc < word.length; wordLoc++) {
-						if((x+wordLoc) >= searchBox.length || (y-wordLoc) < 0 || !searchBox[x+wordLoc][y-wordLoc].equals(word[wordLoc])) {
-							foundWord = false;
-							break;
-						}
-					}
-					if(foundWord) {
-						return createPointList(x, x+ word.length - 1, y,y - word.length + 1);
-					}
+	public List<Point> checkIfWordIsDiagonalUpForward(int x, int y, String[] word) {
+		if(searchBox[x][y].equals(word[0])) {
+			boolean foundWord = true;
+			for(int wordLoc = 1; wordLoc < word.length; wordLoc++) {
+				if((x+wordLoc) >= searchBox.length || (y-wordLoc) < 0 || !searchBox[x+wordLoc][y-wordLoc].equals(word[wordLoc])) {
+					foundWord = false;
+					break;
 				}
+			}
+			if(foundWord) {
+				return createPointList(x, x+ word.length - 1, y,y - word.length + 1);
 			}
 		}
 		return null;

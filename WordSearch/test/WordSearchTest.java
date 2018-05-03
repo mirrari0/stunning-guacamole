@@ -90,6 +90,11 @@ public class WordSearchTest {
 		assertNull(search.checkIfWordIsHorizontalAndForward(0, 0, new String[] {"C","E","L","E","R","Y"}));
 	}
 	
+	@Test
+	public void testCheckGridForWord_NotFound() {
+		assertNull(search.checkGridForWord(new String[] {"C","E","L","E","R","Y"}));
+	}
+	
 	@Test 
 	public void testCheckIfWordIsHorizontalAndForward_WordFound() {
 		assertEquals(search.createPointList(9, 13,0,0), search.checkIfWordIsHorizontalAndForward(9, 0, new String[] {"S","C","O","U","T"}));
@@ -153,12 +158,17 @@ public class WordSearchTest {
 	
 	@Test
 	public void testCheckIfWordIsDiagonalDownForward_notFound() {
-		assertNull(search.checkIfWordIsDiagonalDownForward(new String[] {"C","E","L","E","R","Y"}));
+		assertNull(search.checkIfWordIsDiagonalDownForward(0,0,new String[] {"C","E","L","E","R","Y"}));
 	}
 	
 	@Test
 	public void testCheckIfWordIsDiagonalDownForward_found() {
-		assertEquals(search.createPointList(4, 7, 9, 13),search.checkIfWordIsDiagonalDownForward(new String[] {"B","I","K","E"}));
+		assertEquals(search.createPointList(4, 7, 9, 13),search.checkIfWordIsDiagonalDownForward(4,9,new String[] {"B","I","K","E"}));
+	}
+	
+	@Test
+	public void testCheckGridForWord_Diagonal_Down_Forward_found() {
+		assertEquals(search.createPointList(4, 7, 9, 13),search.checkGridForWord(new String[] {"B","I","K","E"}));
 	}
 	
 	@Test
@@ -174,11 +184,16 @@ public class WordSearchTest {
 
 	@Test
 	public void testCheckIfWordIsDiagonalUpForward_notFound() {
-		assertNull(search.checkIfWordIsDiagonalUpForward(new String[] {"C","E","L","E","R","Y"}));
+		assertNull(search.checkIfWordIsDiagonalUpForward(0,18,new String[] {"C","E","L","E","R","Y"}));
 	}
 	
 	@Test
 	public void testCheckIfWordIsDiagonalUpForward_found() {
-		assertEquals(search.createPointList(2, 5, 18, 15),search.checkIfWordIsDiagonalUpForward(new String[] {"M","E","S","O"}));
+		assertEquals(search.createPointList(2, 5, 18, 15),search.checkIfWordIsDiagonalUpForward(2,18,new String[] {"M","E","S","O"}));
+	}
+	
+	@Test
+	public void testCheckGridForWord_Diagonal_Up_Forward_found() {
+		assertEquals(search.createPointList(2, 5, 18, 15),search.checkGridForWord(new String[] {"M","E","S","O"}));
 	}
 }
