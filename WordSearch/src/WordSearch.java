@@ -84,6 +84,22 @@ public class WordSearch {
 	}
 
 	public Object checkIfWordIsVerticalAndDown(String[] word) {
+		for(int x = 0; x < searchBox.length; x++) {
+			for(int y = 0; y <searchBox.length; y++) {
+				if(searchBox[x][y].equals(word[0])) {
+					boolean foundWord = true;
+					for(int wordLoc = 1; wordLoc < word.length; wordLoc++) {
+						if((y+wordLoc) >= searchBox.length || !searchBox[x][y+wordLoc].equals(word[wordLoc])) {
+							foundWord = false;
+							break;
+						}
+					}
+					if(foundWord) {
+						return createPointList(x, x, y,y+ word.length - 1);
+					}
+				}
+			}
+		}
 		return null;
 	}
 
