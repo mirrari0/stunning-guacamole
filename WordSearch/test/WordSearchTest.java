@@ -223,4 +223,15 @@ public class WordSearchTest {
 		assertEquals(search.createPointList(13, 9,0,0), search.checkGridForWord( new String[] {"T","U","O","C","S"}));
 	}
 	
+	@Test
+	public void testCreatePointListVerticalUp() {
+		List<Point> expectedPoints = new ArrayList<Point>();
+		expectedPoints.add(new Point(10,9));
+		expectedPoints.add(new Point(10,8));
+		expectedPoints.add(new Point(10,7));
+		expectedPoints.add(new Point(10,6));
+		assertEquals(expectedPoints, search.createPointList(10, 10, 9, 6));	
+	}
+	
+	
 }

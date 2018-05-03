@@ -70,7 +70,12 @@ public class WordSearch {
 			}
 			
 		}
-		else { 
+		else if (yEnd - yStart < 0) {
+			for(int i = 0; i <= yStart - yEnd; i++) {
+				points.add(new Point(xStart,yStart-i));
+			}
+		}
+		else { //default for yEnd - yStart > 0 
 			for(int i = yStart; i <= yEnd; i++) {
 				points.add(new Point(xStart,i));
 			}
