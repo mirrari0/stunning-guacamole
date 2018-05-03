@@ -145,4 +145,9 @@ public class WordSearchTest {
 	public void testCheckIfWordIsDiagonalDownForward_notFound() {
 		assertNull(search.checkIfWordIsDiagonalDownForward(new String[] {"C","E","L","E","R","Y"}));
 	}
+	
+	@Test
+	public void testCheckIfWordIsDiagonalDownForward_found() {
+		assertEquals(search.createPointList(4, 7, 9, 13),search.checkIfWordIsDiagonalDownForward(new String[] {"B","I","K","E"}));
+	}
 }
