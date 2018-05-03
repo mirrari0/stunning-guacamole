@@ -420,4 +420,66 @@ public class WordSearchTest {
 			assertNull(search.fileName);
 		}
 	}
+	
+	@Test
+	public void testIfWordIsHorizontalAndForward_partialMatchOnEdgeOfField() {
+		assertNull(search.checkIfWordIsHorizontalAndForward(17, 0, search.parseToStringArray("EACH")));
+	}
+	
+	@Test
+	public void testIfWordIsHorizontalAndBackward_partialMatchOnEdgeOfField() {
+		assertNull(search.checkIfWordIsHorizontalAndBackward(1, 0, search.parseToStringArray("BACON")));
+	}
+	
+	@Test
+	public void testIfWordIsVerticalAndDown_partialMatchOnEdgeOfField() {
+		assertNull(search.checkIfWordIsVerticalAndDown(0, 17, search.parseToStringArray("BOOM")));
+	}
+	
+	@Test
+	public void testIfWordIsVerticalAndUp_partialMatchOnEdgeOfField() {
+		assertNull(search.checkIfWordIsVerticalAndUp(11, 1, search.parseToStringArray("VOID")));
+	}
+	
+	@Test
+	public void testIfWordIsDiagonalForwardAndDown_partialMatchOnEdgeOfField() {
+		assertNull(search.checkIfWordIsDiagonalDownForward(17, 7, search.parseToStringArray("NAIL")));
+	}
+	
+	@Test
+	public void testIfWordIsDiagonalForwardAndUp_partialMatchOnEdgeOfField() {
+		assertNull(search.checkIfWordIsDiagonalUpForward(17, 14, search.parseToStringArray("PAIL")));
+	}
+	
+	@Test
+	public void testIfWordIsDiagonalBackwardAndDown_partialMatchOnEdgeOfField()	{
+		assertNull(search.checkIfWordIsDiagonalDownBackward(1, 7, search.parseToStringArray("COIL")));
+	}
+	
+	@Test
+	public void testIfWordIsDiagonalBackwardAndUp_partialMatchOnEdgeOfField() {
+		assertNull(search.checkIfWordIsDiagonalUpBackward(1, 5, search.parseToStringArray("NILE")));
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
