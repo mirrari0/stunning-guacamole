@@ -285,6 +285,16 @@ public class WordSearch {
 		return out;
 	}
 
+	
+	public void processSearchWordFile() {
+		loadStructuresFromFile();
+		printOutLocations(processWordsAgainstGrid());
+	}
+
+	public void parseArgs(String[] strings) {
+		fileName = strings[0];
+	}
+
 
 	
 	

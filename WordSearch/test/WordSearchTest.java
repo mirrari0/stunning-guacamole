@@ -359,4 +359,37 @@ public class WordSearchTest {
 		sb.append("\n");
 		assertEquals(sb.toString(),buffer.toString());
 	}
+	
+	@Test
+	public void testProcessSearchWordFile() {
+		ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(buffer));
+		search.processSearchWordFile();
+		System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+		StringBuffer sb = new StringBuffer();
+		sb.append("SCOUT: (9,0),(10,0),(11,0),(12,0),(13,0)");
+		sb.append("\n");
+		sb.append("AVOCADO: (12,1),(11,1),(10,1),(9,1),(8,1),(7,1),(6,1)");
+		sb.append("\n");
+		sb.append("BONE: (1,0),(1,1),(1,2),(1,3)");
+		sb.append("\n");
+		sb.append("ROPE: (3,10),(2,9),(1,8),(0,7)");
+		sb.append("\n");
+		sb.append("STICK: (2,6),(2,5),(2,4),(2,3),(2,2)");
+		sb.append("\n");
+		sb.append("BIKE: (4,9),(5,10),(6,11),(7,12)");
+		sb.append("\n");
+		assertEquals(sb.toString(),buffer.toString());
+		
+	}
+	
+	@Test
+	public void testParseArguments() {
+		search.clearStructures();
+		search.fileName = null;
+		assertNull(search.fileName);
+		search.parseArgs(new String[] {"testData/testFile.txt"});
+		assertEquals("testData/testFile.txt",search.fileName);
+	}
+	
 }
