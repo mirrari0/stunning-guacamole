@@ -115,4 +115,13 @@ public class WordSearchTest {
 		assertEquals(expectedPoints, search.createPointList(0, 0, 0, 3));
 	}
 	
+	@Test
+	public void testCreatePointListDownVerticalNonZeroX() {
+		List<Point> expectedPoints = new ArrayList<Point>();
+		expectedPoints.add(new Point(7,0));
+		expectedPoints.add(new Point(7,1));
+		expectedPoints.add(new Point(7,2));
+		expectedPoints.add(new Point(7,3));
+		assertEquals(expectedPoints, search.createPointList(7, 7, 0, 3));
+	}
 }
