@@ -133,6 +133,11 @@ public class WordSearch {
 		return null;
 	}
 
+	public List<Point> checkIfWordIsDiagonalUpForward(String[] strings) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	
 	

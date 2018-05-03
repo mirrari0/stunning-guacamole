@@ -158,7 +158,12 @@ public class WordSearchTest {
 		expectedPoints.add(new Point(8,2));
 		expectedPoints.add(new Point(9,1));
 		expectedPoints.add(new Point(10,0));
-		assertEquals(expectedPoints, search.createPointList(7, 10, 3, 0));
-		
+		assertEquals(expectedPoints, search.createPointList(7, 10, 3, 0));	
+	}
+	
+
+	@Test
+	public void testCheckIfWordIsDiagonalUpForward_notFound() {
+		assertNull(search.checkIfWordIsDiagonalUpForward(new String[] {"C","E","L","E","R","Y"}));
 	}
 }
