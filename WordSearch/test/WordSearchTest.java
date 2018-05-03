@@ -35,7 +35,7 @@ public class WordSearchTest {
 	public void testLoadMultiDimensionalSearchArray() {
 		assertEquals("A", search.searchBox[18][0]);
 		assertEquals("U", search.searchBox[9][12]);
-		assertEquals("P", search.searchBox[0][18]);
+		assertEquals("O", search.searchBox[0][18]);
 		assertEquals("E", search.searchBox[18][18]);
 	}
 
@@ -71,7 +71,7 @@ public class WordSearchTest {
 		expectedPoints.add(new Point(11,0));
 		expectedPoints.add(new Point(12,0));
 		expectedPoints.add(new Point(13,0));
-		assertEquals(expectedPoints, search.createPointList(9,13,0));
+		assertEquals(expectedPoints, search.createPointList(9,13,0,0));
 	}
 	
 	@Test
@@ -82,7 +82,7 @@ public class WordSearchTest {
 		expectedPoints.add(new Point(2,12));
 		expectedPoints.add(new Point(3,12));
 		expectedPoints.add(new Point(4,12));
-		assertEquals(expectedPoints, search.createPointList(0,4,12));
+		assertEquals(expectedPoints, search.createPointList(0,4,12,12));
 	}
 	
 	@Test
@@ -92,17 +92,27 @@ public class WordSearchTest {
 	
 	@Test 
 	public void testCheckIfWordIsHorizontalAndForward_WordFound() {
-		assertEquals(search.createPointList(9, 13,0), search.checkIfWordIsHorizontalAndForward(new String[] {"S","C","O","U","T"}));
+		assertEquals(search.createPointList(9, 13,0,0), search.checkIfWordIsHorizontalAndForward(new String[] {"S","C","O","U","T"}));
 	}
 
 	@Test 
 	public void testCheckIfWordIsHorizontalAndForward_WordFound_nonZeroY() {
-		assertEquals(search.createPointList(0, 4,12), search.checkIfWordIsHorizontalAndForward(new String[] {"P","O","W","E","R"}));
+		assertEquals(search.createPointList(0, 4,12,12), search.checkIfWordIsHorizontalAndForward(new String[] {"P","O","W","E","R"}));
 	}
 		
 	@Test
 	public void testCheckIfWordIsVerticalAndDown_notFound() {
 		assertNull(search.checkIfWordIsVerticalAndDown(new String[] {"C","E","L","E","R","Y"}));
+	}
+	
+	@Test
+	public void testCreatePointListGivenStartAndEndPointsDownVertical() {
+		List<Point> expectedPoints = new ArrayList<Point>();
+		expectedPoints.add(new Point(0,0));
+		expectedPoints.add(new Point(0,1));
+		expectedPoints.add(new Point(0,2));
+		expectedPoints.add(new Point(0,3));
+		assertEquals(expectedPoints, search.createPointList(0, 0, 0, 3));
 	}
 	
 }

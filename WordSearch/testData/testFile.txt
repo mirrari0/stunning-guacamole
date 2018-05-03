@@ -16,5 +16,5 @@ E,C,A,R,Q,N,P,O,U,I,E,W,C,Q,N,K,E,N,A
 I,W,O,E,B,C,O,U,N,T,E,R,O,N,C,S,E,P,Q
 C,N,K,P,C,O,N,D,A,O,M,C,O,B,C,V,X,Z,Q
 P,O,M,R,S,I,K,E,C,Y,C,L,E,S,T,A,R,M,E
-Y,C,L,E,S,T,K,O,U,I,E,W,C,Q,N,N,A,O,P
-P,O,M,R,S,I,K,E,C,Y,C,L,E,S,T,A,R,M,E
+B,C,L,E,S,T,K,O,U,I,E,W,C,Q,N,N,A,O,P
+O,O,M,R,S,I,K,E,C,Y,C,L,E,S,T,A,R,M,E
