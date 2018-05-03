@@ -98,6 +98,8 @@ public class WordSearch {
 				if(wordLocation != null) return wordLocation;
 				wordLocation = checkIfWordIsHorizontalAndBackward(x,y,word);
 				if(wordLocation != null) return wordLocation;
+				wordLocation = checkIfWordIsVerticalAndUp(x,y,word);
+				if(wordLocation != null) return wordLocation;
 			}
 		}
 		return wordLocation;
