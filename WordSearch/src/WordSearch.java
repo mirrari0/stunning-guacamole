@@ -185,7 +185,18 @@ public class WordSearch {
 	}
 
 	public List<Point> checkIfWordIsVerticalAndUp(int x, int y, String[] word) {
-		// TODO Auto-generated method stub
+		if(searchBox[x][y].equals(word[0])) {
+			boolean foundWord = true;
+			for(int wordLoc = 1; wordLoc < word.length; wordLoc++) {
+				if((y-wordLoc) < 0 || !searchBox[x][y-wordLoc].equals(word[wordLoc])) {
+					foundWord = false;
+					break;
+				}
+			}
+			if(foundWord) {
+				return createPointList(x, x, y,y - word.length + 1);
+			}
+		}
 		return null;
 	}
 
