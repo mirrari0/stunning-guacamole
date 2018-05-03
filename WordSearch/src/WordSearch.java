@@ -184,6 +184,11 @@ public class WordSearch {
 		return null;
 	}
 
+	public List<Point> checkIfWordIsVerticalAndUp(int x, int y, String[] word) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	
 	

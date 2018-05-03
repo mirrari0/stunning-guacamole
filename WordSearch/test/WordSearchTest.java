@@ -232,6 +232,11 @@ public class WordSearchTest {
 		expectedPoints.add(new Point(10,6));
 		assertEquals(expectedPoints, search.createPointList(10, 10, 9, 6));	
 	}
+
 	
+	@Test 
+	public void testCheckIfWordIsVerticalAndUp_notFound() {
+		assertNull(search.checkIfWordIsVerticalAndUp(0, 12, new String[] {"P","O","W","E","R"}));
+	}
 	
 }
