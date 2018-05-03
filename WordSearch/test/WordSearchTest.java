@@ -205,6 +205,12 @@ public class WordSearchTest {
 		expectedPoints.add(new Point(8,0));
 		expectedPoints.add(new Point(7,0));
 		assertEquals(expectedPoints, search.createPointList(10, 7, 0, 0));	
-		
 	}
+	
+	@Test 
+	public void testCheckIfWordIsHorizontalAndBackward_notFound() {
+		assertNull(search.checkIfWordIsHorizontalAndBackward(12, 0, new String[] {"P","O","W","E","R"}));
+	}
+	
+	
 }
