@@ -274,6 +274,12 @@ public class WordSearchTest {
 	}
 
 	
+	@Test 
+	public void testCheckGridForWord_Diagonal_Backward_Down_WordFound() {
+		assertEquals(search.createPointList(10, 7,12,15), search.checkGridForWord( new String[] {"S","I","N","D"}));
+	}
+
+	
 	@Test
 	public void testCreatePointListDiagonalUpBackward() {
 		List<Point> expectedPoints = new ArrayList<Point>();
