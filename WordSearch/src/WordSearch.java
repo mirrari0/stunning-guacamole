@@ -49,9 +49,14 @@ public class WordSearch {
 
 	public List<Point> createPointList(int xStart, int xEnd, int yStart, int yEnd) {
 		List<Point> points = new ArrayList<Point>();
-		if(xEnd - xStart != 0 && yEnd - yStart != 0) {
+		if(xEnd - xStart != 0 && yEnd - yStart > 0) {
 			for(int i = 0; i <= xEnd-xStart; i++) {
 				points.add(new Point(xStart + i,yStart + i));
+			}
+		}
+		else if (xEnd - xStart != 0 && yEnd - yStart < 0) {
+			for(int i = 0; i <= xEnd-xStart; i++) {
+				points.add(new Point(xStart + i,yStart - i));
 			}
 		}
 		else if(xEnd - xStart != 0) {

@@ -150,4 +150,15 @@ public class WordSearchTest {
 	public void testCheckIfWordIsDiagonalDownForward_found() {
 		assertEquals(search.createPointList(4, 7, 9, 13),search.checkIfWordIsDiagonalDownForward(new String[] {"B","I","K","E"}));
 	}
+	
+	@Test
+	public void testCreatePointListDiagonalUpForward() {
+		List<Point> expectedPoints = new ArrayList<Point>();
+		expectedPoints.add(new Point(7,3));
+		expectedPoints.add(new Point(8,2));
+		expectedPoints.add(new Point(9,1));
+		expectedPoints.add(new Point(10,0));
+		assertEquals(expectedPoints, search.createPointList(7, 10, 3, 0));
+		
+	}
 }
