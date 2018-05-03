@@ -88,7 +88,7 @@ public class WordSearch {
 		return null;
 	}
 
-	public Object checkIfWordIsVerticalAndDown(String[] word) {
+	public List<Point> checkIfWordIsVerticalAndDown(String[] word) {
 		for(int x = 0; x < searchBox.length; x++) {
 			for(int y = 0; y <searchBox.length; y++) {
 				if(searchBox[x][y].equals(word[0])) {
@@ -105,6 +105,10 @@ public class WordSearch {
 				}
 			}
 		}
+		return null;
+	}
+
+	public List<Point> checkIfWordIsDiagonalDownForward(String[] strings) {
 		return null;
 	}
 
