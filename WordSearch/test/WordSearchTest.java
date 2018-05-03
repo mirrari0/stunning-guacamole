@@ -261,6 +261,12 @@ public class WordSearchTest {
 		assertEquals(expectedPoints, search.createPointList(10, 7, 6, 9));	
 	}
 	
+
+	@Test
+	public void testCheckIfWordIsDiagonalDownBackward_notFound() {
+		assertNull(search.checkIfWordIsDiagonalDownBackward(18,0,new String[] {"C","E","L","E","R","Y"}));
+	}
+	
 	@Test
 	public void testCreatePointListDiagonalUpBackward() {
 		List<Point> expectedPoints = new ArrayList<Point>();
