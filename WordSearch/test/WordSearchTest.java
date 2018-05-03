@@ -218,4 +218,9 @@ public class WordSearchTest {
 		assertEquals(search.createPointList(13, 9,0,0), search.checkIfWordIsHorizontalAndBackward(13, 0, new String[] {"T","U","O","C","S"}));
 	}
 	
+	@Test 
+	public void testCheckGridForWord_Horizontal_Backward_WordFound() {
+		assertEquals(search.createPointList(13, 9,0,0), search.checkGridForWord( new String[] {"T","U","O","C","S"}));
+	}
+	
 }
