@@ -1,6 +1,7 @@
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 
 import java.awt.Point;
 import java.io.ByteArrayOutputStream;
@@ -384,12 +385,25 @@ public class WordSearchTest {
 	}
 	
 	@Test
-	public void testParseArguments() {
+	public void testParseArguments() throws Exception {
 		search.clearStructures();
 		search.fileName = null;
 		assertNull(search.fileName);
 		search.parseArgs(new String[] {"testData/testFile.txt"});
 		assertEquals("testData/testFile.txt",search.fileName);
 	}
-	
+
+	@Test
+	public void testParseArgs_null() {
+		search.clearStructures();
+		search.fileName = null;
+		try {
+			search.parseArgs(null);
+			fail();
+		}
+		catch (Exception e) {
+			assertEquals("Expecting full file path to be passed in as an arguement.", e.getMessage());
+			assertNull(search.fileName);
+		}
+	}
 }

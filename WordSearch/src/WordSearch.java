@@ -291,7 +291,10 @@ public class WordSearch {
 		printOutLocations(processWordsAgainstGrid());
 	}
 
-	public void parseArgs(String[] strings) {
+	public void parseArgs(String[] strings) throws Exception {
+		if(strings == null) {
+			throw new Exception("Expecting full file path to be passed in as an arguement.");
+		}
 		fileName = strings[0];
 	}
 
