@@ -59,10 +59,16 @@ public class WordSearch {
 				points.add(new Point(xStart + i,yStart - i));
 			}
 		}
-		else if(xEnd - xStart != 0) {
+		else if(xEnd - xStart > 0) {
 			for(int i = xStart; i <= xEnd; i++) {
 				points.add(new Point(i,yStart));
 			}
+		}
+		else if (xEnd -xStart < 0) {
+			for(int i = 0; i <= xStart - xEnd; i++) {
+				points.add(new Point(xStart - i,yStart));
+			}
+			
 		}
 		else { 
 			for(int i = yStart; i <= yEnd; i++) {

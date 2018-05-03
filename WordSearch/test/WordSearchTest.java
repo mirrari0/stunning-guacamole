@@ -196,4 +196,15 @@ public class WordSearchTest {
 	public void testCheckGridForWord_Diagonal_Up_Forward_found() {
 		assertEquals(search.createPointList(2, 5, 18, 15),search.checkGridForWord(new String[] {"M","E","S","O"}));
 	}
+	
+	@Test
+	public void testCreatePointListHorizonalBackwards() {
+		List<Point> expectedPoints = new ArrayList<Point>();
+		expectedPoints.add(new Point(10,0));
+		expectedPoints.add(new Point(9,0));
+		expectedPoints.add(new Point(8,0));
+		expectedPoints.add(new Point(7,0));
+		assertEquals(expectedPoints, search.createPointList(10, 7, 0, 0));	
+		
+	}
 }
