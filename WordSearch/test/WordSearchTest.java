@@ -87,22 +87,32 @@ public class WordSearchTest {
 	
 	@Test
 	public void testCheckIfWordIsHorizontalAndForward_NotFound() {
-		assertNull(search.checkIfWordIsHorizontalAndForward(new String[] {"C","E","L","E","R","Y"}));
+		assertNull(search.checkIfWordIsHorizontalAndForward(0, 0, new String[] {"C","E","L","E","R","Y"}));
 	}
 	
 	@Test 
 	public void testCheckIfWordIsHorizontalAndForward_WordFound() {
-		assertEquals(search.createPointList(9, 13,0,0), search.checkIfWordIsHorizontalAndForward(new String[] {"S","C","O","U","T"}));
+		assertEquals(search.createPointList(9, 13,0,0), search.checkIfWordIsHorizontalAndForward(9, 0, new String[] {"S","C","O","U","T"}));
+	}
+	
+	@Test 
+	public void testCheckGridForWord_Horizontal_Forward_WordFound() {
+		assertEquals(search.createPointList(9, 13,0,0), search.checkGridForWord(new String[] {"S","C","O","U","T"}));
 	}
 
 	@Test 
 	public void testCheckIfWordIsHorizontalAndForward_WordFound_nonZeroY() {
-		assertEquals(search.createPointList(0, 4,12,12), search.checkIfWordIsHorizontalAndForward(new String[] {"P","O","W","E","R"}));
+		assertEquals(search.createPointList(0, 4,12,12), search.checkIfWordIsHorizontalAndForward(0, 12, new String[] {"P","O","W","E","R"}));
+	}
+	
+	@Test
+	public void testCheckGridForWord_horizontal_forward_nonZeroY() {
+		assertEquals(search.createPointList(0, 4,12,12), search.checkGridForWord(new String[] {"P","O","W","E","R"}));
 	}
 		
 	@Test
 	public void testCheckIfWordIsVerticalAndDown_notFound() {
-		assertNull(search.checkIfWordIsVerticalAndDown(new String[] {"C","E","L","E","R","Y"}));
+		assertNull(search.checkIfWordIsVerticalAndDown(0,0,new String[] {"C","E","L","E","R","Y"}));
 	}
 	
 	@Test
@@ -127,7 +137,7 @@ public class WordSearchTest {
 	
 	@Test
 	public void testCheckIfWordIsVerticalAndDown_found() {
-		assertEquals(search.createPointList(1, 1, 0, 3), search.checkIfWordIsVerticalAndDown(new String[] {"B","O","N","E"}));
+		assertEquals(search.createPointList(1, 1, 0, 3), search.checkIfWordIsVerticalAndDown(1,0,new String[] {"B","O","N","E"}));
 	}
 	
 	@Test
@@ -165,5 +175,10 @@ public class WordSearchTest {
 	@Test
 	public void testCheckIfWordIsDiagonalUpForward_notFound() {
 		assertNull(search.checkIfWordIsDiagonalUpForward(new String[] {"C","E","L","E","R","Y"}));
+	}
+	
+	@Test
+	public void testCheckIfWordIsDiagonalUpForward_found() {
+		assertEquals(search.createPointList(2, 5, 18, 15),search.checkIfWordIsDiagonalUpForward(new String[] {"M","E","S","O"}));
 	}
 }
