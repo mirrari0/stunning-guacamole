@@ -266,6 +266,13 @@ public class WordSearchTest {
 	public void testCheckIfWordIsDiagonalDownBackward_notFound() {
 		assertNull(search.checkIfWordIsDiagonalDownBackward(18,0,new String[] {"C","E","L","E","R","Y"}));
 	}
+
+	
+	@Test 
+	public void testCheckIfWordIsDiagonalBackwardAndDown_WordFound() {
+		assertEquals(search.createPointList(10, 7,12,15), search.checkIfWordIsDiagonalDownBackward(10, 12, new String[] {"S","I","N","D"}));
+	}
+
 	
 	@Test
 	public void testCreatePointListDiagonalUpBackward() {

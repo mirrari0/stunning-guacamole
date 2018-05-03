@@ -213,7 +213,18 @@ public class WordSearch {
 	}
 
 	public List<Point> checkIfWordIsDiagonalDownBackward(int x, int y, String[] word) {
-		// TODO Auto-generated method stub
+		if(searchBox[x][y].equals(word[0])) {
+			boolean foundWord = true;
+			for(int wordLoc = 1; wordLoc < word.length; wordLoc++) {
+				if((y+wordLoc) >= searchBox.length || (x-wordLoc) < 0 || !searchBox[x-wordLoc][y+wordLoc].equals(word[wordLoc])) {
+					foundWord = false;
+					break;
+				}
+			}
+			if(foundWord) {
+				return createPointList(x, x - word.length + 1, y,y+ word.length - 1);
+			}
+		}
 		return null;
 	}
 
