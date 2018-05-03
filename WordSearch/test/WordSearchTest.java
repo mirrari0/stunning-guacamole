@@ -251,6 +251,26 @@ public class WordSearchTest {
 		assertEquals(search.createPointList(12, 12,5,2), search.checkGridForWord( new String[] {"P","A","C","O"}));
 	}
 	
+	@Test
+	public void testCreatePointListDiagonalDownBackward() {
+		List<Point> expectedPoints = new ArrayList<Point>();
+		expectedPoints.add(new Point(10,6));
+		expectedPoints.add(new Point(9,7));
+		expectedPoints.add(new Point(8,8));
+		expectedPoints.add(new Point(7,9));
+		assertEquals(expectedPoints, search.createPointList(10, 7, 6, 9));	
+	}
+	
+	@Test
+	public void testCreatePointListDiagonalUpBackward() {
+		List<Point> expectedPoints = new ArrayList<Point>();
+		expectedPoints.add(new Point(10,9));
+		expectedPoints.add(new Point(9,8));
+		expectedPoints.add(new Point(8,7));
+		expectedPoints.add(new Point(7,6));
+		assertEquals(expectedPoints, search.createPointList(10, 7, 9, 6));	
+	}
+	
 	
 	
 }

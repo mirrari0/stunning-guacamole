@@ -49,33 +49,43 @@ public class WordSearch {
 
 	public List<Point> createPointList(int xStart, int xEnd, int yStart, int yEnd) {
 		List<Point> points = new ArrayList<Point>();
-		if(xEnd - xStart != 0 && yEnd - yStart > 0) {
+		if(xEnd - xStart > 0 && yEnd - yStart > 0) { //Diagonal Forward Down
 			for(int i = 0; i <= xEnd-xStart; i++) {
 				points.add(new Point(xStart + i,yStart + i));
 			}
 		}
-		else if (xEnd - xStart != 0 && yEnd - yStart < 0) {
+		else if (xEnd - xStart < 0 && yEnd - yStart > 0) { // Diagonal Backward Down
+			for(int i = 0; i <= xStart-xEnd; i++) {
+				points.add(new Point(xStart - i,yStart + i));
+			}
+		}
+		else if (xEnd - xStart < 0 && yEnd - yStart < 0) { // Diagonal Backward Up
+			for(int i = 0; i <= xStart-xEnd; i++) {
+				points.add(new Point(xStart - i,yStart - i));
+			}
+		}
+		else if (xEnd - xStart > 0 && yEnd - yStart < 0) { //Diagonal Forward Up
 			for(int i = 0; i <= xEnd-xStart; i++) {
 				points.add(new Point(xStart + i,yStart - i));
 			}
 		}
-		else if(xEnd - xStart > 0) {
+		else if(xEnd - xStart > 0) { //Horizonal Forward
 			for(int i = xStart; i <= xEnd; i++) {
 				points.add(new Point(i,yStart));
 			}
 		}
-		else if (xEnd -xStart < 0) {
+		else if (xEnd -xStart < 0) { //Horizontal Backward
 			for(int i = 0; i <= xStart - xEnd; i++) {
 				points.add(new Point(xStart - i,yStart));
 			}
 			
 		}
-		else if (yEnd - yStart < 0) {
+		else if (yEnd - yStart < 0) { // Vertical Up
 			for(int i = 0; i <= yStart - yEnd; i++) {
 				points.add(new Point(xStart,yStart-i));
 			}
 		}
-		else { //default for yEnd - yStart > 0 
+		else { //default for yEnd - yStart > 0 Vertical Down
 			for(int i = yStart; i <= yEnd; i++) {
 				points.add(new Point(xStart,i));
 			}
