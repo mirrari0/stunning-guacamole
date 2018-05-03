@@ -308,6 +308,11 @@ public class WordSearchTest {
 	}
 	
 	@Test
+	public void testStringToStringArray_null() {
+		assertNull(search.parseToStringArray(null));
+	}
+	
+	@Test
 	public void testStringToStringArray() {
 		assertArrayEquals( new String[] {"C","E","L","E","R","Y"}, search.parseToStringArray("CELERY"));
 	}
