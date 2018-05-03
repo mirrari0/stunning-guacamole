@@ -9,7 +9,9 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -317,5 +319,16 @@ public class WordSearchTest {
 		assertArrayEquals( new String[] {"C","E","L","E","R","Y"}, search.parseToStringArray("CELERY"));
 	}
 	
+	@Test
+	public void testProcessExpectedWords() {
+		Map<String,List<Point>> expected = new HashMap<>();
+		expected.put("SCOUT",search.createPointList(9, 13, 0, 0));
+		expected.put("AVOCADO", search.createPointList(12, 6, 1, 1));
+		expected.put("BONE", search.createPointList(1, 1, 0, 3));
+		expected.put("STICK", search.createPointList(2, 2, 6, 2));
+		expected.put("BIKE", search.createPointList(4, 7, 9, 13));
+		expected.put("ROPE", search.createPointList(3, 0, 10, 7));
+		assertEquals(expected,search.processWordsAgainstGrid());
+	}
 	
 }
