@@ -292,7 +292,7 @@ public class WordSearch {
 	}
 
 	public void parseArgs(String[] strings) throws Exception {
-		if(strings == null) {
+		if(strings == null || strings.length < 1) {
 			throw new Exception("Expecting full file path to be passed in as an arguement.");
 		}
 		fileName = strings[0];

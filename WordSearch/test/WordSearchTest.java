@@ -406,4 +406,18 @@ public class WordSearchTest {
 			assertNull(search.fileName);
 		}
 	}
+
+	@Test
+	public void testParseArgs_emptyString() {
+		search.clearStructures();
+		search.fileName = null;
+		try {
+			search.parseArgs(new String[] {});
+			fail();
+		}
+		catch (Exception e) {
+			assertEquals("Expecting full file path to be passed in as an arguement.", e.getMessage());
+			assertNull(search.fileName);
+		}
+	}
 }
