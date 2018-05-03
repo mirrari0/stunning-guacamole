@@ -248,6 +248,17 @@ public class WordSearch {
 		return null;
 	}
 
+	public String[] parseToStringArray(String string) {
+		if(string == null) {
+			return null;
+		}
+		String[] array = new String[string.length()];
+		for(int i = 0; i < string.length(); i++) {
+			array[i] = String.valueOf(string.charAt(i));
+		}
+		return array;
+	}
+
 
 	
 	

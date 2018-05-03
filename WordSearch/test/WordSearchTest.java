@@ -1,3 +1,4 @@
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
@@ -306,6 +307,10 @@ public class WordSearchTest {
 		assertEquals(search.createPointList(7,4,8,5), search.checkGridForWord(new String[] {"S","P","O","N"}));
 	}
 	
+	@Test
+	public void testStringToStringArray() {
+		assertArrayEquals( new String[] {"C","E","L","E","R","Y"}, search.parseToStringArray("CELERY"));
+	}
 	
 	
 }
