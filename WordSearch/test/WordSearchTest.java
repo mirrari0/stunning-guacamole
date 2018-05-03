@@ -290,6 +290,11 @@ public class WordSearchTest {
 		assertNull(search.checkIfWordIsDiagonalUpBackward(18,18,new String[] {"C","E","L","E","R","Y"}));
 	}
 	
+	@Test
+	public void testCheckIfWordIsDiagonalUpBackward_found() {
+		assertEquals(search.createPointList(7,4,8,5), search.checkIfWordIsDiagonalUpBackward(7, 8, new String[] {"S","P","O","N"}));
+	}
+	
 	
 	
 }
