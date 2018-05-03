@@ -112,6 +112,8 @@ public class WordSearch {
 				if(wordLocation != null) return wordLocation;
 				wordLocation = checkIfWordIsDiagonalDownBackward(x,y,word);
 				if(wordLocation != null) return wordLocation;
+				wordLocation = checkIfWordIsDiagonalUpBackward(x,y,word);
+				if(wordLocation != null) return wordLocation;
 			}
 		}
 		return wordLocation;
