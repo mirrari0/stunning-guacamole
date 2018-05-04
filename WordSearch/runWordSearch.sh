@@ -1,1 +1,1 @@
-java -jar WordSearch.jar $1
+java -jar build/libs/WordSearch.jar $1
