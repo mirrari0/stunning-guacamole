@@ -14,14 +14,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 public class WordSearchTest {
 
 	WordSearch search;
 	
-	@BeforeEach
+	@Before
 	public void setUp() {
 		search = new WordSearch();
 		search.fileName="testData/testFile.txt";
